@@ -1,2 +1,8 @@
 //깃 내용을 로컬저장소에 복사
 git clone https://github.com/ShinSeongCheol/Baekjoon.git
+//깃 내용을 추가
+git add [파일 이름].[확장자]
+//변경 사항을 확정
+git commit -m "[data]"
+//수정사항을 git hub에 올리기
+git push
