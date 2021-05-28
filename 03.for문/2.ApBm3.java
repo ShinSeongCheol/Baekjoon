@@ -20,14 +20,15 @@ public class ApBm3 {
 			T = Integer.parseInt(br.readLine());
 			
 			for(int i=0; i<T; i++) {
+				
 				str = br.readLine().split(" "); 
 				A = Integer.parseInt(str[0]);
 				B = Integer.parseInt(str[1]);
 				
 				bw.write(A+B + "\n");
 				bw.flush();
+				
 			}
-			
 		}catch(IOException e) {
 			e.printStackTrace();
 		}finally {
