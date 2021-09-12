@@ -1,2 +1,2 @@
 dfs(depth first search) 는 스택으로 구현
-bfs (breath first search) 는 큐로 구현
+bfs (breadth first search) 는 큐로 구현
