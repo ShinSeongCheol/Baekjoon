@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class 파도반_수열 {
-	public static int[] memo = new int[101];
+public static long[] memo = new long[101];
 
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
@@ -35,7 +35,7 @@ public class 파도반_수열 {
 		br.close();
 	}
 	
-	public static int P(int N) {
+	public static long P(int N) {
 		if(N == 0) {
 			return 0;
 		}
@@ -47,3 +47,4 @@ public class 파도반_수열 {
 		return memo[N]; 
 	}
 }
+
