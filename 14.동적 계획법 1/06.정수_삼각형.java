@@ -21,12 +21,13 @@ import java.util.StringTokenizer;
 public class Á¤¼ö_»ï°¢Çü {
 	
 	public static int[] num = new int[125250];
-	public static int[] dp = new int[125250];
+	public static int[] dp;
 
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
+		dp = new int[n*n-1+1];
 		int j = 0;
 		
 		StringTokenizer st;
@@ -38,20 +39,22 @@ public class Á¤¼ö_»ï°¢Çü {
 			st = new StringTokenizer(br.readLine(), " ");
 			while(st.hasMoreTokens()) {
 				num[j] = Integer.parseInt(st.nextToken());
-				j++;
+				j++;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 			}
 		}
 		
 		dp[0] = num[0];
 		
+		System.out.println(sum(n));
 	}
 
 	public static int sum(int n) {
-		if(dp[n] == -1) {
-			
+		int max = n*n-1;
+		if(dp[max] == -1) {
+			dp[n] = num[max-(n-1)] + sum(n);
 		}
 		
-		return 0;
+		return dp[n];
 	}
 	
 }
