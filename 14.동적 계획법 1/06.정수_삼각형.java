@@ -20,14 +20,17 @@ import java.util.StringTokenizer;
 
 public class Á¤¼ö_»ï°¢Çü {
 	
-	public static int[] num = new int[125250];
-	public static int[] dp;
+	public static int[][] arr;
+	public static int[][] dp;
 
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
-		dp = new int[n*n-1+1];
+		
+		arr = new int[n][n];
+		dp = new int[n][n];
+		
 		int j = 0;
 		
 		StringTokenizer st;
