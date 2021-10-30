@@ -6,8 +6,8 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /*
- *         7
- *         3   8
+ *             7
+ *             3   8
  *             8   1   0
  *             2   7   4   4
  *             4   5   2   6   5
@@ -22,42 +22,55 @@ public class 정수_삼각형 {
 	
 	public static int[][] arr;
 	public static int[][] dp;
+	public static int n;
 
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(br.readLine());
+		StringTokenizer st;
 		
+		n = Integer.parseInt(br.readLine());
+		
+		//2차원 배열 생성
 		arr = new int[n][n];
 		dp = new int[n][n];
 		
-		int j = 0;
-		
-		StringTokenizer st;
-		
-		for(int i=0; i<dp.length; i++)
-			dp[i] = -1;
-		
+		//dp배열 -1로 초기화
 		for(int i=0; i<n; i++) {
-			st = new StringTokenizer(br.readLine(), " ");
-			while(st.hasMoreTokens()) {
-				num[j] = Integer.parseInt(st.nextToken());
-				j++;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+			for(int j=0; j<n; j++) {
+				dp[i][j] = -1;
 			}
 		}
 		
-		dp[0] = num[0];
-		
-		System.out.println(sum(n));
-	}
-
-	public static int sum(int n) {
-		int max = n*n-1;
-		if(dp[max] == -1) {
-			dp[n] = num[max-(n-1)] + sum(n);
+		//arr배열 초기화
+		for(int i=0; i<n; i++) {
+			int j=0;
+			st = new StringTokenizer(br.readLine(), " ");
+			
+			while(st.hasMoreTokens()) {
+				arr[i][j] = Integer.parseInt(st.nextToken());
+				j++;
+			}
+			
 		}
 		
-		return dp[n];
+		//dp의 마지막줄을 arr의 마지막 줄로 초기화
+		for(int i=0; i<n; i++)
+			dp[n-1][i] = arr[n-1][i];
+		
+		System.out.println(sum(0,0));
 	}
 	
+	//dfs알고리즘
+	public static int sum(int depth, int idx) {
+		if(depth == n-1) {
+			return dp[depth][idx];
+		}
+		
+		if(dp[depth][idx] == -1) {
+			dp[depth][idx] = Math.max(sum(depth+1, idx), sum(depth+1, idx+1)) + arr[depth][idx];
+		}
+		
+		return dp[depth][idx];
+	}
 }
